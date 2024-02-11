@@ -62,14 +62,10 @@ class DataFetcher():
     def get_historical_stop_and_search_data(self):
         months_to_query = self.get_available_months()
 
-        i = 0
         historical_data = []
         for m in months_to_query:
-            i += 1
             data = self.get_stop_and_search_data(month=m)
             historical_data.extend(data)
             logger.info(f"Historical data added for month {m}")
-            if i > 3:
-                break
 
         return historical_data
